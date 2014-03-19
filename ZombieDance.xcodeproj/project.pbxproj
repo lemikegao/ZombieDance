@@ -1,0 +1,502 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C460D18418D924B400B5824D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C460D18318D924B400B5824D /* Foundation.framework */; };
+		C460D18618D924B400B5824D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C460D18518D924B400B5824D /* CoreGraphics.framework */; };
+		C460D18818D924B400B5824D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C460D18718D924B400B5824D /* UIKit.framework */; };
+		C460D18A18D924B400B5824D /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C460D18918D924B400B5824D /* SpriteKit.framework */; };
+		C460D19018D924B400B5824D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C460D18E18D924B400B5824D /* InfoPlist.strings */; };
+		C460D19218D924B400B5824D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C460D19118D924B400B5824D /* main.m */; };
+		C460D19618D924B400B5824D /* ZDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C460D19518D924B400B5824D /* ZDAppDelegate.m */; };
+		C460D19918D924B400B5824D /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C460D19718D924B400B5824D /* Main_iPhone.storyboard */; };
+		C460D19C18D924B400B5824D /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C460D19A18D924B400B5824D /* Main_iPad.storyboard */; };
+		C460D19F18D924B400B5824D /* ZDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C460D19E18D924B400B5824D /* ZDViewController.m */; };
+		C460D1A218D924B400B5824D /* ZDMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C460D1A118D924B400B5824D /* ZDMyScene.m */; };
+		C460D1A418D924B400B5824D /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = C460D1A318D924B400B5824D /* Spaceship.png */; };
+		C460D1A618D924B400B5824D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C460D1A518D924B400B5824D /* Images.xcassets */; };
+		C460D1AD18D924B400B5824D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C460D1AC18D924B400B5824D /* XCTest.framework */; };
+		C460D1AE18D924B400B5824D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C460D18318D924B400B5824D /* Foundation.framework */; };
+		C460D1AF18D924B400B5824D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C460D18718D924B400B5824D /* UIKit.framework */; };
+		C460D1B718D924B400B5824D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C460D1B518D924B400B5824D /* InfoPlist.strings */; };
+		C460D1B918D924B400B5824D /* ZombieDanceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C460D1B818D924B400B5824D /* ZombieDanceTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C460D1B018D924B400B5824D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C460D17818D924B400B5824D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C460D17F18D924B400B5824D;
+			remoteInfo = ZombieDance;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C460D18018D924B400B5824D /* ZombieDance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZombieDance.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C460D18318D924B400B5824D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C460D18518D924B400B5824D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C460D18718D924B400B5824D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C460D18918D924B400B5824D /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		C460D18D18D924B400B5824D /* ZombieDance-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZombieDance-Info.plist"; sourceTree = "<group>"; };
+		C460D18F18D924B400B5824D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C460D19118D924B400B5824D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C460D19318D924B400B5824D /* ZombieDance-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZombieDance-Prefix.pch"; sourceTree = "<group>"; };
+		C460D19418D924B400B5824D /* ZDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZDAppDelegate.h; sourceTree = "<group>"; };
+		C460D19518D924B400B5824D /* ZDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZDAppDelegate.m; sourceTree = "<group>"; };
+		C460D19818D924B400B5824D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		C460D19B18D924B400B5824D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		C460D19D18D924B400B5824D /* ZDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZDViewController.h; sourceTree = "<group>"; };
+		C460D19E18D924B400B5824D /* ZDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZDViewController.m; sourceTree = "<group>"; };
+		C460D1A018D924B400B5824D /* ZDMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZDMyScene.h; sourceTree = "<group>"; };
+		C460D1A118D924B400B5824D /* ZDMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZDMyScene.m; sourceTree = "<group>"; };
+		C460D1A318D924B400B5824D /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
+		C460D1A518D924B400B5824D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C460D1AB18D924B400B5824D /* ZombieDanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZombieDanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C460D1AC18D924B400B5824D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		C460D1B418D924B400B5824D /* ZombieDanceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZombieDanceTests-Info.plist"; sourceTree = "<group>"; };
+		C460D1B618D924B400B5824D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C460D1B818D924B400B5824D /* ZombieDanceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZombieDanceTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C460D17D18D924B400B5824D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C460D18618D924B400B5824D /* CoreGraphics.framework in Frameworks */,
+				C460D18818D924B400B5824D /* UIKit.framework in Frameworks */,
+				C460D18A18D924B400B5824D /* SpriteKit.framework in Frameworks */,
+				C460D18418D924B400B5824D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C460D1A818D924B400B5824D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C460D1AD18D924B400B5824D /* XCTest.framework in Frameworks */,
+				C460D1AF18D924B400B5824D /* UIKit.framework in Frameworks */,
+				C460D1AE18D924B400B5824D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C460D17718D924B400B5824D = {
+			isa = PBXGroup;
+			children = (
+				C460D18B18D924B400B5824D /* ZombieDance */,
+				C460D1B218D924B400B5824D /* ZombieDanceTests */,
+				C460D18218D924B400B5824D /* Frameworks */,
+				C460D18118D924B400B5824D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C460D18118D924B400B5824D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C460D18018D924B400B5824D /* ZombieDance.app */,
+				C460D1AB18D924B400B5824D /* ZombieDanceTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C460D18218D924B400B5824D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C460D18318D924B400B5824D /* Foundation.framework */,
+				C460D18518D924B400B5824D /* CoreGraphics.framework */,
+				C460D18718D924B400B5824D /* UIKit.framework */,
+				C460D18918D924B400B5824D /* SpriteKit.framework */,
+				C460D1AC18D924B400B5824D /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C460D18B18D924B400B5824D /* ZombieDance */ = {
+			isa = PBXGroup;
+			children = (
+				C460D19418D924B400B5824D /* ZDAppDelegate.h */,
+				C460D19518D924B400B5824D /* ZDAppDelegate.m */,
+				C460D19718D924B400B5824D /* Main_iPhone.storyboard */,
+				C460D19A18D924B400B5824D /* Main_iPad.storyboard */,
+				C460D19D18D924B400B5824D /* ZDViewController.h */,
+				C460D19E18D924B400B5824D /* ZDViewController.m */,
+				C460D1A018D924B400B5824D /* ZDMyScene.h */,
+				C460D1A118D924B400B5824D /* ZDMyScene.m */,
+				C460D1A318D924B400B5824D /* Spaceship.png */,
+				C460D1A518D924B400B5824D /* Images.xcassets */,
+				C460D18C18D924B400B5824D /* Supporting Files */,
+			);
+			path = ZombieDance;
+			sourceTree = "<group>";
+		};
+		C460D18C18D924B400B5824D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C460D18D18D924B400B5824D /* ZombieDance-Info.plist */,
+				C460D18E18D924B400B5824D /* InfoPlist.strings */,
+				C460D19118D924B400B5824D /* main.m */,
+				C460D19318D924B400B5824D /* ZombieDance-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C460D1B218D924B400B5824D /* ZombieDanceTests */ = {
+			isa = PBXGroup;
+			children = (
+				C460D1B818D924B400B5824D /* ZombieDanceTests.m */,
+				C460D1B318D924B400B5824D /* Supporting Files */,
+			);
+			path = ZombieDanceTests;
+			sourceTree = "<group>";
+		};
+		C460D1B318D924B400B5824D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C460D1B418D924B400B5824D /* ZombieDanceTests-Info.plist */,
+				C460D1B518D924B400B5824D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C460D17F18D924B400B5824D /* ZombieDance */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C460D1BC18D924B400B5824D /* Build configuration list for PBXNativeTarget "ZombieDance" */;
+			buildPhases = (
+				C460D17C18D924B400B5824D /* Sources */,
+				C460D17D18D924B400B5824D /* Frameworks */,
+				C460D17E18D924B400B5824D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZombieDance;
+			productName = ZombieDance;
+			productReference = C460D18018D924B400B5824D /* ZombieDance.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C460D1AA18D924B400B5824D /* ZombieDanceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C460D1BF18D924B400B5824D /* Build configuration list for PBXNativeTarget "ZombieDanceTests" */;
+			buildPhases = (
+				C460D1A718D924B400B5824D /* Sources */,
+				C460D1A818D924B400B5824D /* Frameworks */,
+				C460D1A918D924B400B5824D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C460D1B118D924B400B5824D /* PBXTargetDependency */,
+			);
+			name = ZombieDanceTests;
+			productName = ZombieDanceTests;
+			productReference = C460D1AB18D924B400B5824D /* ZombieDanceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C460D17818D924B400B5824D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = ZD;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Chin and Cheeks LLC";
+				TargetAttributes = {
+					C460D1AA18D924B400B5824D = {
+						TestTargetID = C460D17F18D924B400B5824D;
+					};
+				};
+			};
+			buildConfigurationList = C460D17B18D924B400B5824D /* Build configuration list for PBXProject "ZombieDance" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C460D17718D924B400B5824D;
+			productRefGroup = C460D18118D924B400B5824D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C460D17F18D924B400B5824D /* ZombieDance */,
+				C460D1AA18D924B400B5824D /* ZombieDanceTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C460D17E18D924B400B5824D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C460D1A418D924B400B5824D /* Spaceship.png in Resources */,
+				C460D1A618D924B400B5824D /* Images.xcassets in Resources */,
+				C460D19C18D924B400B5824D /* Main_iPad.storyboard in Resources */,
+				C460D19918D924B400B5824D /* Main_iPhone.storyboard in Resources */,
+				C460D19018D924B400B5824D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C460D1A918D924B400B5824D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C460D1B718D924B400B5824D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C460D17C18D924B400B5824D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C460D1A218D924B400B5824D /* ZDMyScene.m in Sources */,
+				C460D19F18D924B400B5824D /* ZDViewController.m in Sources */,
+				C460D19618D924B400B5824D /* ZDAppDelegate.m in Sources */,
+				C460D19218D924B400B5824D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C460D1A718D924B400B5824D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C460D1B918D924B400B5824D /* ZombieDanceTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C460D1B118D924B400B5824D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C460D17F18D924B400B5824D /* ZombieDance */;
+			targetProxy = C460D1B018D924B400B5824D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C460D18E18D924B400B5824D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C460D18F18D924B400B5824D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C460D19718D924B400B5824D /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C460D19818D924B400B5824D /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		C460D19A18D924B400B5824D /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C460D19B18D924B400B5824D /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		C460D1B518D924B400B5824D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C460D1B618D924B400B5824D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C460D1BA18D924B400B5824D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C460D1BB18D924B400B5824D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C460D1BD18D924B400B5824D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZombieDance/ZombieDance-Prefix.pch";
+				INFOPLIST_FILE = "ZombieDance/ZombieDance-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C460D1BE18D924B400B5824D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZombieDance/ZombieDance-Prefix.pch";
+				INFOPLIST_FILE = "ZombieDance/ZombieDance-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C460D1C018D924B400B5824D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ZombieDance.app/ZombieDance";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZombieDance/ZombieDance-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ZombieDanceTests/ZombieDanceTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		C460D1C118D924B400B5824D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ZombieDance.app/ZombieDance";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZombieDance/ZombieDance-Prefix.pch";
+				INFOPLIST_FILE = "ZombieDanceTests/ZombieDanceTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C460D17B18D924B400B5824D /* Build configuration list for PBXProject "ZombieDance" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C460D1BA18D924B400B5824D /* Debug */,
+				C460D1BB18D924B400B5824D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C460D1BC18D924B400B5824D /* Build configuration list for PBXNativeTarget "ZombieDance" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C460D1BD18D924B400B5824D /* Debug */,
+				C460D1BE18D924B400B5824D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C460D1BF18D924B400B5824D /* Build configuration list for PBXNativeTarget "ZombieDanceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C460D1C018D924B400B5824D /* Debug */,
+				C460D1C118D924B400B5824D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C460D17818D924B400B5824D /* Project object */;
+}
