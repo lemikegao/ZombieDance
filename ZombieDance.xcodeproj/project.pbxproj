@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C416D11218E7FD91002D3388 /* ZDGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C416D11118E7FD91002D3388 /* ZDGameManager.m */; };
+		C416D11618E7FEE2002D3388 /* killZombie.wav in Resources */ = {isa = PBXBuildFile; fileRef = C416D11518E7FEE2002D3388 /* killZombie.wav */; };
 		C460D18418D924B400B5824D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C460D18318D924B400B5824D /* Foundation.framework */; };
 		C460D18618D924B400B5824D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C460D18518D924B400B5824D /* CoreGraphics.framework */; };
 		C460D18818D924B400B5824D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C460D18718D924B400B5824D /* UIKit.framework */; };
@@ -18,13 +20,19 @@
 		C460D19C18D924B400B5824D /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C460D19A18D924B400B5824D /* Main_iPad.storyboard */; };
 		C460D19F18D924B400B5824D /* ZDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C460D19E18D924B400B5824D /* ZDViewController.m */; };
 		C460D1A218D924B400B5824D /* ZDMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C460D1A118D924B400B5824D /* ZDMyScene.m */; };
-		C460D1A418D924B400B5824D /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = C460D1A318D924B400B5824D /* Spaceship.png */; };
 		C460D1A618D924B400B5824D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C460D1A518D924B400B5824D /* Images.xcassets */; };
 		C460D1AD18D924B400B5824D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C460D1AC18D924B400B5824D /* XCTest.framework */; };
 		C460D1AE18D924B400B5824D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C460D18318D924B400B5824D /* Foundation.framework */; };
 		C460D1AF18D924B400B5824D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C460D18718D924B400B5824D /* UIKit.framework */; };
 		C460D1B718D924B400B5824D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C460D1B518D924B400B5824D /* InfoPlist.strings */; };
 		C460D1B918D924B400B5824D /* ZombieDanceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C460D1B818D924B400B5824D /* ZombieDanceTests.m */; };
+		C460D1C418D925CC00B5824D /* ZDZombie.m in Sources */ = {isa = PBXBuildFile; fileRef = C460D1C318D925CC00B5824D /* ZDZombie.m */; };
+		C460D1CB18D92D0100B5824D /* ZDMotionRequirements.m in Sources */ = {isa = PBXBuildFile; fileRef = C460D1CA18D92D0100B5824D /* ZDMotionRequirements.m */; };
+		C460D1CE18D92D8000B5824D /* ZDDanceMoveBernie.m in Sources */ = {isa = PBXBuildFile; fileRef = C460D1CD18D92D8000B5824D /* ZDDanceMoveBernie.m */; };
+		C4B65DEA18DBB9C500149B09 /* ZDDanceMove.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B65DE918DBB9C500149B09 /* ZDDanceMove.m */; };
+		C4D85BEA18E8F1A1009DAE6E /* ZDDanceMoveYMCA.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D85BE918E8F1A1009DAE6E /* ZDDanceMoveYMCA.m */; };
+		C4D85BED18E8F1B0009DAE6E /* ZDDanceMoveGangnamStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D85BEC18E8F1B0009DAE6E /* ZDDanceMoveGangnamStyle.m */; };
+		C4D85BF018E8F2EC009DAE6E /* ZDTestMotionScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D85BEF18E8F2EC009DAE6E /* ZDTestMotionScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C416D11018E7FD91002D3388 /* ZDGameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZDGameManager.h; sourceTree = "<group>"; };
+		C416D11118E7FD91002D3388 /* ZDGameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZDGameManager.m; sourceTree = "<group>"; };
+		C416D11518E7FEE2002D3388 /* killZombie.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = killZombie.wav; sourceTree = "<group>"; };
 		C460D18018D924B400B5824D /* ZombieDance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZombieDance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C460D18318D924B400B5824D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C460D18518D924B400B5824D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -55,13 +66,27 @@
 		C460D19E18D924B400B5824D /* ZDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZDViewController.m; sourceTree = "<group>"; };
 		C460D1A018D924B400B5824D /* ZDMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZDMyScene.h; sourceTree = "<group>"; };
 		C460D1A118D924B400B5824D /* ZDMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZDMyScene.m; sourceTree = "<group>"; };
-		C460D1A318D924B400B5824D /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		C460D1A518D924B400B5824D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C460D1AB18D924B400B5824D /* ZombieDanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZombieDanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C460D1AC18D924B400B5824D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C460D1B418D924B400B5824D /* ZombieDanceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZombieDanceTests-Info.plist"; sourceTree = "<group>"; };
 		C460D1B618D924B400B5824D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C460D1B818D924B400B5824D /* ZombieDanceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZombieDanceTests.m; sourceTree = "<group>"; };
+		C460D1C218D925CC00B5824D /* ZDZombie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZDZombie.h; sourceTree = "<group>"; };
+		C460D1C318D925CC00B5824D /* ZDZombie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZDZombie.m; sourceTree = "<group>"; };
+		C460D1C918D92D0100B5824D /* ZDMotionRequirements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZDMotionRequirements.h; sourceTree = "<group>"; };
+		C460D1CA18D92D0100B5824D /* ZDMotionRequirements.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZDMotionRequirements.m; sourceTree = "<group>"; };
+		C460D1CC18D92D8000B5824D /* ZDDanceMoveBernie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZDDanceMoveBernie.h; sourceTree = "<group>"; };
+		C460D1CD18D92D8000B5824D /* ZDDanceMoveBernie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZDDanceMoveBernie.m; sourceTree = "<group>"; };
+		C4B65DE818DBB9C500149B09 /* ZDDanceMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZDDanceMove.h; sourceTree = "<group>"; };
+		C4B65DE918DBB9C500149B09 /* ZDDanceMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZDDanceMove.m; sourceTree = "<group>"; };
+		C4D85BE818E8F1A1009DAE6E /* ZDDanceMoveYMCA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZDDanceMoveYMCA.h; sourceTree = "<group>"; };
+		C4D85BE918E8F1A1009DAE6E /* ZDDanceMoveYMCA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZDDanceMoveYMCA.m; sourceTree = "<group>"; };
+		C4D85BEB18E8F1B0009DAE6E /* ZDDanceMoveGangnamStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZDDanceMoveGangnamStyle.h; sourceTree = "<group>"; };
+		C4D85BEC18E8F1B0009DAE6E /* ZDDanceMoveGangnamStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZDDanceMoveGangnamStyle.m; sourceTree = "<group>"; };
+		C4D85BEE18E8F2EC009DAE6E /* ZDTestMotionScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZDTestMotionScene.h; sourceTree = "<group>"; };
+		C4D85BEF18E8F2EC009DAE6E /* ZDTestMotionScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZDTestMotionScene.m; sourceTree = "<group>"; };
+		C4D85BF118E8F6AB009DAE6E /* ZDConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZDConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +114,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C416D11318E7FEE2002D3388 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C416D11418E7FEE2002D3388 /* SFX */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		C416D11418E7FEE2002D3388 /* SFX */ = {
+			isa = PBXGroup;
+			children = (
+				C416D11518E7FEE2002D3388 /* killZombie.wav */,
+			);
+			path = SFX;
+			sourceTree = "<group>";
+		};
 		C460D17718D924B400B5824D = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +164,9 @@
 		C460D18B18D924B400B5824D /* ZombieDance */ = {
 			isa = PBXGroup;
 			children = (
+				C4D85BEE18E8F2EC009DAE6E /* ZDTestMotionScene.h */,
+				C4D85BEF18E8F2EC009DAE6E /* ZDTestMotionScene.m */,
+				C460D1C518D92CBB00B5824D /* DanceMoves */,
 				C460D19418D924B400B5824D /* ZDAppDelegate.h */,
 				C460D19518D924B400B5824D /* ZDAppDelegate.m */,
 				C460D19718D924B400B5824D /* Main_iPhone.storyboard */,
@@ -131,8 +175,13 @@
 				C460D19E18D924B400B5824D /* ZDViewController.m */,
 				C460D1A018D924B400B5824D /* ZDMyScene.h */,
 				C460D1A118D924B400B5824D /* ZDMyScene.m */,
-				C460D1A318D924B400B5824D /* Spaceship.png */,
+				C460D1C218D925CC00B5824D /* ZDZombie.h */,
+				C460D1C318D925CC00B5824D /* ZDZombie.m */,
+				C416D11018E7FD91002D3388 /* ZDGameManager.h */,
+				C416D11118E7FD91002D3388 /* ZDGameManager.m */,
+				C4D85BF118E8F6AB009DAE6E /* ZDConstants.h */,
 				C460D1A518D924B400B5824D /* Images.xcassets */,
+				C416D11318E7FEE2002D3388 /* Assets */,
 				C460D18C18D924B400B5824D /* Supporting Files */,
 			);
 			path = ZombieDance;
@@ -165,6 +214,23 @@
 				C460D1B518D924B400B5824D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C460D1C518D92CBB00B5824D /* DanceMoves */ = {
+			isa = PBXGroup;
+			children = (
+				C4B65DE818DBB9C500149B09 /* ZDDanceMove.h */,
+				C4B65DE918DBB9C500149B09 /* ZDDanceMove.m */,
+				C460D1CC18D92D8000B5824D /* ZDDanceMoveBernie.h */,
+				C460D1CD18D92D8000B5824D /* ZDDanceMoveBernie.m */,
+				C4D85BE818E8F1A1009DAE6E /* ZDDanceMoveYMCA.h */,
+				C4D85BE918E8F1A1009DAE6E /* ZDDanceMoveYMCA.m */,
+				C4D85BEB18E8F1B0009DAE6E /* ZDDanceMoveGangnamStyle.h */,
+				C4D85BEC18E8F1B0009DAE6E /* ZDDanceMoveGangnamStyle.m */,
+				C460D1C918D92D0100B5824D /* ZDMotionRequirements.h */,
+				C460D1CA18D92D0100B5824D /* ZDMotionRequirements.m */,
+			);
+			path = DanceMoves;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,11 +310,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C460D1A418D924B400B5824D /* Spaceship.png in Resources */,
 				C460D1A618D924B400B5824D /* Images.xcassets in Resources */,
 				C460D19C18D924B400B5824D /* Main_iPad.storyboard in Resources */,
 				C460D19918D924B400B5824D /* Main_iPhone.storyboard in Resources */,
 				C460D19018D924B400B5824D /* InfoPlist.strings in Resources */,
+				C416D11618E7FEE2002D3388 /* killZombie.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,9 +333,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4D85BF018E8F2EC009DAE6E /* ZDTestMotionScene.m in Sources */,
+				C4D85BEA18E8F1A1009DAE6E /* ZDDanceMoveYMCA.m in Sources */,
+				C416D11218E7FD91002D3388 /* ZDGameManager.m in Sources */,
+				C4B65DEA18DBB9C500149B09 /* ZDDanceMove.m in Sources */,
 				C460D1A218D924B400B5824D /* ZDMyScene.m in Sources */,
 				C460D19F18D924B400B5824D /* ZDViewController.m in Sources */,
+				C460D1CE18D92D8000B5824D /* ZDDanceMoveBernie.m in Sources */,
+				C460D1C418D925CC00B5824D /* ZDZombie.m in Sources */,
 				C460D19618D924B400B5824D /* ZDAppDelegate.m in Sources */,
+				C460D1CB18D92D0100B5824D /* ZDMotionRequirements.m in Sources */,
+				C4D85BED18E8F1B0009DAE6E /* ZDDanceMoveGangnamStyle.m in Sources */,
 				C460D19218D924B400B5824D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,6 +561,7 @@
 				C460D1BE18D924B400B5824D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C460D1BF18D924B400B5824D /* Build configuration list for PBXNativeTarget "ZombieDanceTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +570,7 @@
 				C460D1C118D924B400B5824D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

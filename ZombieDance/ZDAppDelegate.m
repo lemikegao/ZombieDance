@@ -7,12 +7,18 @@
 //
 
 #import "ZDAppDelegate.h"
+#import "ZDGameManager.h"
 
 @implementation ZDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    // Initialize game manager
+    [ZDGameManager sharedGameManager];
+    
+    // Disable idle timer (prevent screen from blacking out)
+    [application setIdleTimerDisabled:YES];
+    
     return YES;
 }
 							

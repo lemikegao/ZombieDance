@@ -7,47 +7,265 @@
 //
 
 #import "ZDMyScene.h"
+#import "ZDZombie.h"
+#import <CoreMotion/CoreMotion.h>
+#import "ZDDanceMoveBernie.h"
+#import "ZDDanceMoveYMCA.h"
+#import "ZDGameManager.h"
+
+@interface ZDMyScene()
+
+@property (nonatomic, strong) NSMutableArray *zombies;
+@property (nonatomic) NSTimeInterval lastUpdateTime;
+@property (nonatomic) NSTimeInterval dt;
+@property (nonatomic) BOOL isGameOver;
+@property (nonatomic, strong) SKLabelNode *gameOverLabel;
+@property (nonatomic) NSTimeInterval zombieSpawnInterval;
+@property (nonatomic) NSTimeInterval zombieSpawnTimer;
+
+// Dance move detection
+@property (nonatomic, strong) ZDDanceMove *danceMove;
+@property (nonatomic) int currentStep;
+@property (nonatomic) int currentPart;
+@property (nonatomic, strong) NSArray *currentDanceStepParts;
+@property (nonatomic, strong) CMMotionManager *motionManager;
+@property (nonatomic, strong) SKLabelNode *currentDanceMoveLabel;
+@property (nonatomic) BOOL shouldDetectDanceMove;
+
+@end
+
+static const float ZOMBIE_MOVE_POINTS_PER_SEC = 30;
 
 @implementation ZDMyScene
 
 -(id)initWithSize:(CGSize)size {    
-    if (self = [super initWithSize:size]) {
-        /* Setup your scene here */
+    if (self = [super initWithSize:size])
+    {
+        self.backgroundColor = [UIColor whiteColor];
         
-        self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
+        _zombieSpawnInterval = 5;
+        _zombieSpawnTimer = 0;
+        _zombies = [[NSMutableArray alloc] initWithCapacity:50];
+        _isGameOver = NO;
+        _currentStep = 1;
+        _currentPart = 1;
+        _shouldDetectDanceMove = NO;
         
-        SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+        // Motion manager
+        _motionManager = [[CMMotionManager alloc] init];
+        _motionManager.deviceMotionUpdateInterval = 1.0/60.0f;
+        [_motionManager startDeviceMotionUpdates];
         
-        myLabel.text = @"Hello, World!";
-        myLabel.fontSize = 30;
-        myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-                                       CGRectGetMidY(self.frame));
+        _gameOverLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica-Bold"];
+        _gameOverLabel.fontColor = [UIColor blackColor];
+        _gameOverLabel.fontSize = 36;
+        _gameOverLabel.text = @"You died!";
+        _gameOverLabel.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.7);
+        _gameOverLabel.hidden = YES;
+        _gameOverLabel.zPosition = 10;
+        [self addChild:_gameOverLabel];
         
-        [self addChild:myLabel];
+        _currentDanceMoveLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
+        _currentDanceMoveLabel.fontColor = [UIColor blackColor];
+        _currentDanceMoveLabel.fontSize = 24;
+        _currentDanceMoveLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeTop;
+        _currentDanceMoveLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeRight;
+        _currentDanceMoveLabel.position = CGPointMake(self.size.width * 0.98, self.size.height * 0.98);
+        _currentDanceMoveLabel.zPosition = 10;
+        _currentDanceMoveLabel.alpha = 0;
+        [self addChild:_currentDanceMoveLabel];
+        
+        [self spawnZombie];
     }
     return self;
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    /* Called when a touch begins */
-    
-    for (UITouch *touch in touches) {
-        CGPoint location = [touch locationInNode:self];
-        
-        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-        
-        sprite.position = location;
-        
-        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
-        
-        [sprite runAction:[SKAction repeatActionForever:action]];
-        
-        [self addChild:sprite];
+- (void)dealloc
+{
+    [self.motionManager stopDeviceMotionUpdates];
+}
+
+- (void)spawnZombie
+{
+    if (self.currentDanceMoveLabel.alpha < 1)
+    {
+        [self selectNextDanceMove];
     }
+    
+    int maxZombies = self.size.width / 25;
+    int zombiePositionMultiplier = arc4random() % maxZombies - 1;
+    
+    ZDZombie *zombie = [[ZDZombie alloc] init];
+    zombie.anchorPoint = CGPointMake(0, 1);
+    zombie.position = CGPointMake(25 * zombiePositionMultiplier, self.size.height);
+    [self addChild:zombie];
+    
+    [self.zombies addObject:zombie];
+}
+
+- (void)selectNextDanceMove
+{
+    self.currentStep = 1;
+    self.currentPart = 1;
+    
+    // Select random dance move type
+    DanceMoveTypes danceMoveType = arc4random() % DanceMoveTypesCount;
+    if (danceMoveType == DanceMoveTypesBernie)
+    {
+        self.danceMove = [[ZDDanceMoveBernie alloc] init];
+    }
+    else if (danceMoveType == DanceMoveTypesYMCA)
+    {
+        self.danceMove = [[ZDDanceMoveYMCA alloc] init];
+    }
+    self.currentDanceStepParts = self.danceMove.stepsArray[0];
+    [self.currentDanceMoveLabel removeAllActions];
+    self.currentDanceMoveLabel.text = self.danceMove.name;
+    self.currentDanceMoveLabel.alpha = 1;
+    
+    self.shouldDetectDanceMove = YES;
+}
+
+- (void)detectDancePart
+{
+    CGFloat yaw = (RadiansToDegrees(self.motionManager.deviceMotion.attitude.yaw));
+    CGFloat pitch = (RadiansToDegrees(self.motionManager.deviceMotion.attitude.pitch));
+    CGFloat roll = (RadiansToDegrees(self.motionManager.deviceMotion.attitude.roll));
+    CMAcceleration totalAcceleration = self.motionManager.deviceMotion.userAcceleration;
+    
+    ZDMotionRequirements *currentPartMotionRequirements = self.currentDanceStepParts[self.currentPart-1];
+    if ((totalAcceleration.x > currentPartMotionRequirements.accelerationXMin) &&
+        (totalAcceleration.x < currentPartMotionRequirements.accelerationXMax) &&
+        (totalAcceleration.y > currentPartMotionRequirements.accelerationYMin) &&
+        (totalAcceleration.y < currentPartMotionRequirements.accelerationYMax) &&
+        (totalAcceleration.z > currentPartMotionRequirements.accelerationZMin) &&
+        (totalAcceleration.z < currentPartMotionRequirements.accelerationZMax)) {
+        if ((currentPartMotionRequirements.rollRollover == MotionRolloverTypeMin && fabsf(roll) > currentPartMotionRequirements.rollMin) || (currentPartMotionRequirements.rollRollover == MotionRolloverTypeMax && fabsf(roll) > fabsf(currentPartMotionRequirements.rollMax)) ||
+            (currentPartMotionRequirements.rollRollover == MotionRolloverTypeNone && (roll > currentPartMotionRequirements.rollMin) && (roll < currentPartMotionRequirements.rollMax)))
+        {
+            if ((yaw > currentPartMotionRequirements.yawMin) &&
+                (yaw < currentPartMotionRequirements.yawMax) &&
+                (pitch > currentPartMotionRequirements.pitchMin) &&
+                (pitch < currentPartMotionRequirements.pitchMax))
+            {
+                
+                NSLog(@"step: %lu, part: %lu detected", (unsigned long)self.currentStep, (unsigned long)self.currentPart);
+                
+                [self moveOnToNextPart];
+            }
+        }
+    }
+//    if ((yaw > currentPartMotionRequirements.yawMin) &&
+//        (yaw < currentPartMotionRequirements.yawMax) &&
+//        (pitch > currentPartMotionRequirements.pitchMin) &&
+//        (pitch < currentPartMotionRequirements.pitchMax) &&
+//        (roll > currentPartMotionRequirements.rollMin) &&
+//        (roll < currentPartMotionRequirements.rollMax) &&
+//        (totalAcceleration.x > currentPartMotionRequirements.accelerationXMin) &&
+//        (totalAcceleration.x < currentPartMotionRequirements.accelerationXMax) &&
+//        (totalAcceleration.y > currentPartMotionRequirements.accelerationYMin) &&
+//        (totalAcceleration.y < currentPartMotionRequirements.accelerationYMax) &&
+//        (totalAcceleration.z > currentPartMotionRequirements.accelerationZMin) &&
+//        (totalAcceleration.z < currentPartMotionRequirements.accelerationZMax)) {
+//        NSLog(@"step: %lu, part: %lu detected", (unsigned long)self.currentStep, (unsigned long)self.currentPart);
+//        
+//        [self moveOnToNextPart];
+//    }
+}
+
+- (void)moveOnToNextPart
+{
+    if (self.currentPart == self.currentDanceStepParts.count)
+    {
+        [self moveOnToNextStep];
+    }
+    else
+    {
+        // Move on to next part
+        self.currentPart++;
+    }
+}
+
+- (void)moveOnToNextStep
+{
+    if (self.currentStep == self.danceMove.stepsArray.count)
+    {
+        self.shouldDetectDanceMove = NO;
+        
+        // Finished iteration!
+        [self killZombie];
+    }
+    else
+    {
+        self.currentStep++;
+        self.currentDanceStepParts = self.danceMove.stepsArray[self.currentStep-1];
+        self.currentPart = 1;
+    }
+}
+
+- (void)killZombie
+{
+    ZDZombie *zombie = [self.zombies firstObject];
+    [zombie runAction:[SKAction fadeOutWithDuration:0.2f] completion:^{
+        [zombie removeFromParent];
+        [self.zombies removeObject:zombie];
+        
+        if (self.zombies.count > 0)
+        {
+            [self selectNextDanceMove];
+        }
+    }];
+    
+    // Fade out dance move name
+    [self.currentDanceMoveLabel runAction:[SKAction fadeOutWithDuration:0.1f]];
+    
+    // Play kill zombie SFX
+    [[ZDGameManager sharedGameManager] playSoundEffect:@"killZombie.wav"];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
+    if (self.isGameOver == NO)
+    {
+        if (self.lastUpdateTime) {
+            self.dt = currentTime - self.lastUpdateTime;
+        } else {
+            self.dt = 0;
+        }
+        self.lastUpdateTime = currentTime;
+        
+        if (self.shouldDetectDanceMove)
+        {
+            [self detectDancePart];
+        }
+        
+        if (self.zombieSpawnTimer >= self.zombieSpawnInterval)
+        {
+            self.zombieSpawnTimer = 0;
+            if (self.zombieSpawnInterval > 1)
+            {
+                self.zombieSpawnInterval--;
+            }
+            else if (self.zombieSpawnInterval > 0.25)
+            {
+                self.zombieSpawnInterval -= 0.05;
+            }
+            [self spawnZombie];
+        }
+        
+        [self.zombies enumerateObjectsUsingBlock:^(ZDZombie *zombie, NSUInteger idx, BOOL *stop) {
+            zombie.position = CGPointMake(zombie.position.x, zombie.position.y - ZOMBIE_MOVE_POINTS_PER_SEC * self.dt);
+            
+            // Check game over
+            if (zombie.position.y <= zombie.size.height)
+            {
+                self.isGameOver = YES;
+                self.gameOverLabel.hidden = NO;
+            }
+        }];
+        
+        self.zombieSpawnTimer += self.dt;
+    }
 }
 
 @end

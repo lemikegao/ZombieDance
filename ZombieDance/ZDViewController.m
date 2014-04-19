@@ -8,6 +8,7 @@
 
 #import "ZDViewController.h"
 #import "ZDMyScene.h"
+#import "ZDTestMotionScene.h"
 
 @implementation ZDViewController
 
