@@ -22,6 +22,7 @@
 @property (nonatomic, strong) SKLabelNode *gameOverLabel;
 @property (nonatomic) NSTimeInterval zombieSpawnInterval;
 @property (nonatomic) NSTimeInterval zombieSpawnTimer;
+@property (nonatomic) NSUInteger spawnCountPerInterval;
 
 // Dance move detection
 @property (nonatomic, strong) ZDDanceMove *danceMove;
@@ -34,7 +35,7 @@
 
 @end
 
-static const float ZOMBIE_MOVE_POINTS_PER_SEC = 30;
+static CGFloat const kZombieMovePointsPerSec = 30;
 
 @implementation ZDMyScene
 
@@ -43,6 +44,7 @@ static const float ZOMBIE_MOVE_POINTS_PER_SEC = 30;
     {
         self.backgroundColor = [UIColor whiteColor];
         
+        _spawnCountPerInterval = 0;
         _zombieSpawnInterval = 5;
         _zombieSpawnTimer = 0;
         _zombies = [[NSMutableArray alloc] initWithCapacity:50];
@@ -75,6 +77,9 @@ static const float ZOMBIE_MOVE_POINTS_PER_SEC = 30;
         _currentDanceMoveLabel.alpha = 0;
         [self addChild:_currentDanceMoveLabel];
         
+        // PLAY HAPPY!
+        [[ZDGameManager sharedGameManager] playBackgroundMusic:@"happy_instrumental.mp3"];
+        
         [self spawnZombie];
     }
     return self;
@@ -87,6 +92,7 @@ static const float ZOMBIE_MOVE_POINTS_PER_SEC = 30;
 
 - (void)spawnZombie
 {
+    self.spawnCountPerInterval++;
     if (self.currentDanceMoveLabel.alpha < 1)
     {
         [self selectNextDanceMove];
@@ -194,6 +200,7 @@ static const float ZOMBIE_MOVE_POINTS_PER_SEC = 30;
 
 - (void)killZombie
 {
+    [[ZDGameManager sharedGameManager] playSoundEffect:@"killZombie.wav"];
     ZDZombie *zombie = [self.zombies firstObject];
     [zombie runAction:[SKAction fadeOutWithDuration:0.2f] completion:^{
         [zombie removeFromParent];
@@ -228,25 +235,24 @@ static const float ZOMBIE_MOVE_POINTS_PER_SEC = 30;
         if (self.zombieSpawnTimer >= self.zombieSpawnInterval)
         {
             self.zombieSpawnTimer = 0;
-            if (self.zombieSpawnInterval > 1)
+            if (self.zombieSpawnInterval > 2 || (self.zombieSpawnInterval == 2 && self.spawnCountPerInterval >= 30))
             {
                 self.zombieSpawnInterval--;
-            }
-            else if (self.zombieSpawnInterval > 0.25)
-            {
-                self.zombieSpawnInterval -= 0.05;
+                self.spawnCountPerInterval = 0;
             }
             [self spawnZombie];
         }
         
         [self.zombies enumerateObjectsUsingBlock:^(ZDZombie *zombie, NSUInteger idx, BOOL *stop) {
-            zombie.position = CGPointMake(zombie.position.x, zombie.position.y - ZOMBIE_MOVE_POINTS_PER_SEC * self.dt);
+            zombie.position = CGPointMake(zombie.position.x, zombie.position.y - kZombieMovePointsPerSec * self.dt);
             
             // Check game over
             if (zombie.position.y <= zombie.size.height)
             {
                 self.isGameOver = YES;
                 self.gameOverLabel.hidden = NO;
+                [[ZDGameManager sharedGameManager] pauseBackgroundMusic];
+                [[ZDGameManager sharedGameManager] playSoundEffect:@"lose.wav"];
             }
         }];
         
