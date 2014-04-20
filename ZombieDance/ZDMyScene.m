@@ -109,15 +109,20 @@ static const float ZOMBIE_MOVE_POINTS_PER_SEC = 30;
     self.currentPart = 1;
     
     // Select random dance move type
+    NSString *sfxFilename;
     DanceMoveTypes danceMoveType = arc4random() % DanceMoveTypesCount;
     if (danceMoveType == DanceMoveTypesBernie)
     {
         self.danceMove = [[ZDDanceMoveBernie alloc] init];
+        sfxFilename = @"bernie";
     }
     else if (danceMoveType == DanceMoveTypesYMCA)
     {
         self.danceMove = [[ZDDanceMoveYMCA alloc] init];
+        sfxFilename = @"ymca";
     }
+    
+    [[ZDGameManager sharedGameManager] playSoundEffect:[NSString stringWithFormat:@"%@.caf", sfxFilename]];
     self.currentDanceStepParts = self.danceMove.stepsArray[0];
     [self.currentDanceMoveLabel removeAllActions];
     self.currentDanceMoveLabel.text = self.danceMove.name;
@@ -155,22 +160,6 @@ static const float ZOMBIE_MOVE_POINTS_PER_SEC = 30;
             }
         }
     }
-//    if ((yaw > currentPartMotionRequirements.yawMin) &&
-//        (yaw < currentPartMotionRequirements.yawMax) &&
-//        (pitch > currentPartMotionRequirements.pitchMin) &&
-//        (pitch < currentPartMotionRequirements.pitchMax) &&
-//        (roll > currentPartMotionRequirements.rollMin) &&
-//        (roll < currentPartMotionRequirements.rollMax) &&
-//        (totalAcceleration.x > currentPartMotionRequirements.accelerationXMin) &&
-//        (totalAcceleration.x < currentPartMotionRequirements.accelerationXMax) &&
-//        (totalAcceleration.y > currentPartMotionRequirements.accelerationYMin) &&
-//        (totalAcceleration.y < currentPartMotionRequirements.accelerationYMax) &&
-//        (totalAcceleration.z > currentPartMotionRequirements.accelerationZMin) &&
-//        (totalAcceleration.z < currentPartMotionRequirements.accelerationZMax)) {
-//        NSLog(@"step: %lu, part: %lu detected", (unsigned long)self.currentStep, (unsigned long)self.currentPart);
-//        
-//        [self moveOnToNextPart];
-//    }
 }
 
 - (void)moveOnToNextPart
@@ -218,9 +207,6 @@ static const float ZOMBIE_MOVE_POINTS_PER_SEC = 30;
     
     // Fade out dance move name
     [self.currentDanceMoveLabel runAction:[SKAction fadeOutWithDuration:0.1f]];
-    
-    // Play kill zombie SFX
-    [[ZDGameManager sharedGameManager] playSoundEffect:@"killZombie.wav"];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
