@@ -10,6 +10,7 @@
 #import <CoreMotion/CoreMotion.h>
 #import "ZDDanceMoveYMCA.h"
 #import "ZDDanceMoveBernie.h"
+#import "ZDDanceMoveGangnamStyle.h"
 
 @interface ZDTestMotionScene()
 
@@ -66,8 +67,8 @@
         _motionManager.deviceMotionUpdateInterval = 1.0/60.0f;
         [_motionManager startDeviceMotionUpdates];
         
-        // Dance move detcton
-        _danceMove = [[ZDDanceMoveYMCA alloc] init];
+        // Dance move detection
+        _danceMove = [[ZDDanceMoveGangnamStyle alloc] init];
         _currentDanceStepParts = _danceMove.stepsArray[0];
         _currentStep = 1;
         _currentPart = 1;

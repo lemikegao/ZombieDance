@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E57C0291903A3DA00C4A742 /* bernie.caf in Resources */ = {isa = PBXBuildFile; fileRef = 3E57C0261903A3DA00C4A742 /* bernie.caf */; };
-		3E57C02A1903A3DA00C4A742 /* gangnam.caf in Resources */ = {isa = PBXBuildFile; fileRef = 3E57C0271903A3DA00C4A742 /* gangnam.caf */; };
-		3E57C02B1903A3DA00C4A742 /* ymca.caf in Resources */ = {isa = PBXBuildFile; fileRef = 3E57C0281903A3DA00C4A742 /* ymca.caf */; };
 		3E6AC1A21903B02A006AEA1A /* lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3E6AC1A11903B02A006AEA1A /* lose.wav */; };
 		3E6AC1A51903B1A3006AEA1A /* happy_instrumental.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3E6AC1A41903B1A3006AEA1A /* happy_instrumental.mp3 */; };
+		3EBC4ECA1904ECDA002BE935 /* bernie.caf in Resources */ = {isa = PBXBuildFile; fileRef = 3EBC4EC71904ECDA002BE935 /* bernie.caf */; };
+		3EBC4ECB1904ECDA002BE935 /* gangnam.caf in Resources */ = {isa = PBXBuildFile; fileRef = 3EBC4EC81904ECDA002BE935 /* gangnam.caf */; };
+		3EBC4ECC1904ECDA002BE935 /* ymca.caf in Resources */ = {isa = PBXBuildFile; fileRef = 3EBC4EC91904ECDA002BE935 /* ymca.caf */; };
 		C416D11218E7FD91002D3388 /* ZDGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C416D11118E7FD91002D3388 /* ZDGameManager.m */; };
 		C416D11618E7FEE2002D3388 /* killZombie.wav in Resources */ = {isa = PBXBuildFile; fileRef = C416D11518E7FEE2002D3388 /* killZombie.wav */; };
 		C460D18418D924B400B5824D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C460D18318D924B400B5824D /* Foundation.framework */; };
@@ -51,11 +51,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3E57C0261903A3DA00C4A742 /* bernie.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = bernie.caf; path = ../../../../../../Desktop/bernie.caf; sourceTree = "<group>"; };
-		3E57C0271903A3DA00C4A742 /* gangnam.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = gangnam.caf; path = ../../../../../../Desktop/gangnam.caf; sourceTree = "<group>"; };
-		3E57C0281903A3DA00C4A742 /* ymca.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ymca.caf; path = ../../../../../../Desktop/ymca.caf; sourceTree = "<group>"; };
 		3E6AC1A11903B02A006AEA1A /* lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lose.wav; sourceTree = "<group>"; };
 		3E6AC1A41903B1A3006AEA1A /* happy_instrumental.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = happy_instrumental.mp3; sourceTree = "<group>"; };
+		3EBC4EC71904ECDA002BE935 /* bernie.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bernie.caf; sourceTree = "<group>"; };
+		3EBC4EC81904ECDA002BE935 /* gangnam.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gangnam.caf; sourceTree = "<group>"; };
+		3EBC4EC91904ECDA002BE935 /* ymca.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ymca.caf; sourceTree = "<group>"; };
 		C416D11018E7FD91002D3388 /* ZDGameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZDGameManager.h; sourceTree = "<group>"; };
 		C416D11118E7FD91002D3388 /* ZDGameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZDGameManager.m; sourceTree = "<group>"; };
 		C416D11518E7FEE2002D3388 /* killZombie.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = killZombie.wav; sourceTree = "<group>"; };
@@ -144,10 +144,10 @@
 		C416D11418E7FEE2002D3388 /* SFX */ = {
 			isa = PBXGroup;
 			children = (
+				3EBC4EC71904ECDA002BE935 /* bernie.caf */,
+				3EBC4EC81904ECDA002BE935 /* gangnam.caf */,
+				3EBC4EC91904ECDA002BE935 /* ymca.caf */,
 				C416D11518E7FEE2002D3388 /* killZombie.wav */,
-				3E57C0261903A3DA00C4A742 /* bernie.caf */,
-				3E57C0271903A3DA00C4A742 /* gangnam.caf */,
-				3E57C0281903A3DA00C4A742 /* ymca.caf */,
 				3E6AC1A11903B02A006AEA1A /* lose.wav */,
 			);
 			path = SFX;
@@ -336,16 +336,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E57C02A1903A3DA00C4A742 /* gangnam.caf in Resources */,
 				C460D1A618D924B400B5824D /* Images.xcassets in Resources */,
-				3E57C02B1903A3DA00C4A742 /* ymca.caf in Resources */,
 				C460D19C18D924B400B5824D /* Main_iPad.storyboard in Resources */,
 				C460D19918D924B400B5824D /* Main_iPhone.storyboard in Resources */,
-				3E57C0291903A3DA00C4A742 /* bernie.caf in Resources */,
 				3E6AC1A21903B02A006AEA1A /* lose.wav in Resources */,
 				C460D19018D924B400B5824D /* InfoPlist.strings in Resources */,
 				C416D11618E7FEE2002D3388 /* killZombie.wav in Resources */,
 				3E6AC1A51903B1A3006AEA1A /* happy_instrumental.mp3 in Resources */,
+				3EBC4ECB1904ECDA002BE935 /* gangnam.caf in Resources */,
+				3EBC4ECC1904ECDA002BE935 /* ymca.caf in Resources */,
+				3EBC4ECA1904ECDA002BE935 /* bernie.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

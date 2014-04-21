@@ -13,6 +13,7 @@ typedef NS_ENUM(NSInteger, DanceMoveTypes)
     DanceMoveTypesNone = -1,
     DanceMoveTypesBernie,
     DanceMoveTypesYMCA,
+    DanceMoveTypesGangnam,
     DanceMoveTypesCount,
 };
 

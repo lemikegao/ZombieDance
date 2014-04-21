@@ -23,6 +23,7 @@
     
     // Create and configure the scene.
     SKScene * scene = [ZDMyScene sceneWithSize:skView.bounds.size];
+//    SKScene *scene = [ZDTestMotionScene sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.

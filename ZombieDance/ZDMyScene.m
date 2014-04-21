@@ -11,6 +11,7 @@
 #import <CoreMotion/CoreMotion.h>
 #import "ZDDanceMoveBernie.h"
 #import "ZDDanceMoveYMCA.h"
+#import "ZDDanceMoveGangnamStyle.h"
 #import "ZDGameManager.h"
 
 @interface ZDMyScene()
@@ -126,6 +127,11 @@ static CGFloat const kZombieMovePointsPerSec = 30;
     {
         self.danceMove = [[ZDDanceMoveYMCA alloc] init];
         sfxFilename = @"ymca";
+    }
+    else if (danceMoveType == DanceMoveTypesGangnam)
+    {
+        self.danceMove = [[ZDDanceMoveGangnamStyle alloc] init];
+        sfxFilename = @"gangnam";
     }
     
     [[ZDGameManager sharedGameManager] playSoundEffect:[NSString stringWithFormat:@"%@.caf", sfxFilename]];
