@@ -24,6 +24,8 @@
 @property (nonatomic) NSTimeInterval zombieSpawnInterval;
 @property (nonatomic) NSTimeInterval zombieSpawnTimer;
 @property (nonatomic) NSUInteger spawnCountPerInterval;
+@property (nonatomic) NSUInteger zombiesKilled;
+@property (nonatomic, strong) SKLabelNode *zombiesKilledLabel;
 
 // Dance move detection
 @property (nonatomic, strong) ZDDanceMove *danceMove;
@@ -45,6 +47,7 @@ static CGFloat const kZombieMovePointsPerSec = 30;
     {
         self.backgroundColor = [UIColor whiteColor];
         
+        _zombiesKilled = 0;
         _spawnCountPerInterval = 0;
         _zombieSpawnInterval = 5;
         _zombieSpawnTimer = 0;
@@ -53,6 +56,9 @@ static CGFloat const kZombieMovePointsPerSec = 30;
         _currentStep = 1;
         _currentPart = 1;
         _shouldDetectDanceMove = NO;
+        
+        // PLAY HAPPY!
+        [[ZDGameManager sharedGameManager] playBackgroundMusic:@"happy_instrumental.mp3"];
         
         // Motion manager
         _motionManager = [[CMMotionManager alloc] init];
@@ -70,7 +76,7 @@ static CGFloat const kZombieMovePointsPerSec = 30;
         
         _currentDanceMoveLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
         _currentDanceMoveLabel.fontColor = [UIColor blackColor];
-        _currentDanceMoveLabel.fontSize = 24;
+        _currentDanceMoveLabel.fontSize = 20;
         _currentDanceMoveLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeTop;
         _currentDanceMoveLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeRight;
         _currentDanceMoveLabel.position = CGPointMake(self.size.width * 0.98, self.size.height * 0.98);
@@ -78,8 +84,15 @@ static CGFloat const kZombieMovePointsPerSec = 30;
         _currentDanceMoveLabel.alpha = 0;
         [self addChild:_currentDanceMoveLabel];
         
-        // PLAY HAPPY!
-        [[ZDGameManager sharedGameManager] playBackgroundMusic:@"happy_instrumental.mp3"];
+        _zombiesKilledLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
+        _zombiesKilledLabel.fontColor = [UIColor blackColor];
+        _zombiesKilledLabel.fontSize = 20;
+        _zombiesKilledLabel.text = @"Zombies Killed: 0";
+        _zombiesKilledLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
+        _zombiesKilledLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeTop;
+        _zombiesKilledLabel.position = CGPointMake(self.size.width * 0.02, self.size.height * 0.98);
+        _zombiesKilledLabel.zPosition = 10;
+        [self addChild:_zombiesKilledLabel];
         
         [self spawnZombie];
     }
@@ -217,6 +230,10 @@ static CGFloat const kZombieMovePointsPerSec = 30;
             [self selectNextDanceMove];
         }
     }];
+    
+    // Update kill zombie label
+    self.zombiesKilled++;
+    self.zombiesKilledLabel.text = [NSString stringWithFormat:@"Zombies Killed: %lu", (unsigned long)self.zombiesKilled];
     
     // Fade out dance move name
     [self.currentDanceMoveLabel runAction:[SKAction fadeOutWithDuration:0.1f]];
